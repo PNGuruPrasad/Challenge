@@ -1,0 +1,14 @@
+const mongoose = require('mongoose');
+
+const EventSchema = new mongoose.Schema({
+  name: String, // Name of Event
+  date: Date,   // Event Date
+  location: String, // Event Location
+  description: String, // Event Description
+  category: String, // Type of Event
+  reviews: [{ userId: String, text: String, rating: Number }],
+  attendees: [String], // List of user IDs
+  photos: [String] // URLs of uploaded photos
+});
+
+module.exports = mongoose.model('Event', EventSchema);
